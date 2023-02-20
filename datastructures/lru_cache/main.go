@@ -13,13 +13,21 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(first_cache)
 
-	cache.Put(3, "third cache item") // This operation evicts key `2`
+	v, ok := first_cache.(string)
+	if ok {
+		fmt.Println(v)
+	}
+
+	cache.Put(3, "third cache item")
 
 	second_cache, err := cache.Get(2)
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(second_cache)
+
+	v, ok = second_cache.(string)
+	if ok {
+		fmt.Println(v)
+	}
 }

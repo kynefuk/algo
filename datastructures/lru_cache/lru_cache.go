@@ -11,6 +11,11 @@ type LRUCacheIF interface {
 	Put(key int, value interface{}) error
 }
 
+type item struct {
+	value interface{}
+	age   int
+}
+
 type LRUCache struct {
 	capacity   int
 	currentAge int
